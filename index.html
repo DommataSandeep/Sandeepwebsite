@@ -1,0 +1,316 @@
+<!DOCTYPE ahtml>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandeep Dommata | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Deep charcoal background */
+            color: #e2e8f0; /* Light text */
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #22d3ee; /* Bright cyan color */
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #f97316; /* Vibrant orange accent */
+            border-radius: 2px;
+        }
+        .card {
+            background-color: #1e293b; /* Darker card background */
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            background-color: #1e293b;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .project-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .project-link:hover .project-title {
+            color: #22d3ee;
+        }
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        .project-tools {
+            font-style: italic;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            background-color: #22d3ee;
+            color: #ffffff;
+            transition: background-color 0.3s, transform 0.3s;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+        .link-button:hover {
+            background-color: #0d9488;
+            transform: translateY(-2px);
+        }
+        .link-icon {
+            margin-left: 0.5rem;
+        }
+        .nav-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            background-color: transparent;
+            color: #22d3ee;
+            border: 2px solid #22d3ee;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+        .nav-button:hover {
+            background-color: #22d3ee;
+            color: #0f172a;
+        }
+        .nav-button.active {
+            background-color: #22d3ee;
+            color: #0f172a;
+            box-shadow: 0 4px 6px -1px rgba(34, 211, 238, 0.5), 0 2px 4px -1px rgba(34, 211, 238, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+    <div class="container mx-auto px-4 py-8">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-cyan-400">Dommata Sandeep</h1>
+            <p class="text-lg mt-2 text-slate-400">B.Tech in Information Technology | Data Analyst & Developer</p>
+            <div class="flex justify-center items-center mt-4 space-x-4">
+                <a href="https://www.linkedin.com/in/dommata-sandeep-43944526a" target="_blank" class="text-cyan-400 hover:text-cyan-600 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.766s.784-1.765 1.75-1.765 1.75.79 1.75 1.765-.783 1.766-1.75 1.766zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/DommataSandeep" target="_blank" class="text-cyan-400 hover:text-cyan-600 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 0c-6.626 0-12 5.373-12 12 0 5.372 3.535 9.947 8.401 11.533.616.113.841-.266.841-.591 0-.291-.01-1.06-.015-2.072-3.414.743-4.123-1.642-4.123-1.642-.559-1.417-1.365-1.796-1.365-1.796-1.116-.761.084-.746.084-.746 1.233.087 1.884 1.266 1.884 1.266 1.092 1.87 2.871 1.33 3.565 1.018.111-.79.429-1.33.784-1.637-2.729-.309-5.594-1.364-5.594-6.046 0-1.337.477-2.433 1.26-3.292-.123-.31-.546-1.558.119-3.244 0 0 1.03-.33 3.375 1.258.978-.272 2.016-.409 3.05-.414 1.033.005 2.071.142 3.05.414 2.345-1.588 3.375-1.258 3.375-1.258.665 1.686.242 2.934.119 3.244.784.859 1.259 1.955 1.259 3.292 0 4.692-2.868 5.733-5.605 6.046.438.378.835 1.127.835 2.274 0 1.637-.015 2.955-.015 3.354 0 .329.224.704.846.591 4.864-1.586 8.397-6.161 8.397-11.533 0-6.627-5.374-12-12-12z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="flex flex-wrap justify-center gap-4 mb-8">
+            <button class="nav-button active" onclick="showSection('about')">About</button>
+            <button class="nav-button" onclick="showSection('skills')">Skills</button>
+            <button class="nav-button" onclick="showSection('projects')">Projects</button>
+            <button class="nav-button" onclick="showSection('education')">Education</button>
+            <button class="nav-button" onclick="showSection('certifications')">Certifications</button>
+            <button class="nav-button" onclick="showSection('activities')">Activities</button>
+        </nav>
+
+        <!-- Main Content Sections -->
+        <main>
+            <!-- About Section (visible by default) -->
+            <section id="about" class="page-section">
+                <div class="card">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="text-slate-300">Hello, I'm Sandeep Dommata, a B.Tech graduate in Information Technology. I have a strong foundation in a variety of skills, including Python, SQL, Java, DSA, and analytical tools like Power BI. I have experience in developing predictive models and creating data-driven dashboards to solve real-world problems. I am a team player, showcased by my roles in my college's Robotics Club and NSS Club. I am always eager to learn and apply my skills to innovative projects.</p>
+                </div>
+            </section>
+            
+            <!-- Skills Section -->
+            <section id="skills" class="page-section hidden">
+                <h2 class="section-title">Skills</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Analytical Tools -->
+                    <div class="card bg-indigo-900 text-indigo-200">
+                        <h3 class="font-bold text-xl text-indigo-200 mb-2">Analytical Tools</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Power BI</li>
+                            <li>Advanced Excel</li>
+                            <li>Data Warehouse</li>
+                        </ul>
+                    </div>
+                    <!-- Programming Languages -->
+                    <div class="card bg-emerald-900 text-emerald-200">
+                        <h3 class="font-bold text-xl text-emerald-200 mb-2">Programming Languages</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>Java</li>
+                            <li>DSA</li>
+                        </ul>
+                    </div>
+                    <!-- Database -->
+                    <div class="card bg-amber-900 text-amber-200">
+                        <h3 class="font-bold text-xl text-amber-200 mb-2">Database</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>MySQL</li>
+                            <li>Microsoft SQL Server</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Projects Section -->
+            <section id="projects" class="page-section hidden">
+                <h2 class="section-title">Projects</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Car Price Prediction -->
+                    <a href="https://github.com/DommataSandeep/UsedCarsPrediction" target="_blank" class="project-link">
+                        <div class="project-card">
+                            <div class="p-6">
+                                <h3 class="project-title">Car Price Prediction - Used Cars</h3>
+                                <p class="project-tools">[Python | Machine Learning]</p>
+                                <p class="text-slate-300 mb-4">Developed a machine-learning model to predict the selling price of used cars based on key features like brand, mileage, fuel type, and transmission. Performed data cleaning, feature engineering, and visualization to improve model accuracy.</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Business 360 -->
+                    <a href="#" class="project-link">
+                        <div class="project-card">
+                            <div class="p-6">
+                                <h3 class="project-title">Business 360 - Brick & mortar and ecommerce</h3>
+                                <p class="project-tools">[Power BI | SQL | Excel | Dax Studio]</p>
+                                <p class="text-slate-300 mb-4">Customized a multi-functional Power BI dashboard to analyze AtliQ hardware's sales trends. Optimized the report with DAX studio which improved the performance by 5%, leading to a projected 10% revenue acceleration.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Detection - Object and Potholes -->
+                    <a href="https://github.com/DommataSandeep/Object-and-Pothole-detection-using-yolo" target="_blank" class="project-link">
+                        <div class="project-card">
+                            <div class="p-6">
+                                <h3 class="project-title">Detection - Object and Potholes Detection using YoloV9</h3>
+                                <p class="project-tools">[Python | Deep Learning]</p>
+                                <p class="text-slate-300 mb-4">YOLOv9 quickly detects road objects and potholes with high accuracy, making it ideal for real-time applications like autonomous driving and surveillance. It uses advanced networks to detect small or irregular potholes.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="page-section hidden">
+                <h2 class="section-title">Education</h2>
+                <div class="card">
+                    <div class="mb-4">
+                        <h3 class="font-bold text-xl text-cyan-400">Sreenidhi Institute of Science and Technology</h3>
+                        <p class="text-slate-300">B.Tech - Information Technology | 2021-2025 | GPA: 7.6</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-bold text-xl text-cyan-400">Narayana Junior College</h3>
+                        <p class="text-slate-300">2019-2021 | Marks: 932</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-cyan-400">Presidency High School</h3>
+                        <p class="text-slate-300">2019 | GPA: 9.2</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Certifications Section -->
+            <section id="certifications" class="page-section hidden">
+                <h2 class="section-title">Certifications</h2>
+                <div class="card">
+                    <ul class="list-disc list-inside space-y-2 text-slate-300">
+                        <li>Certified in Data Visualization and Analytics by Accenture through the Forage virtual program.</li>
+                        <li>Secured a 5-star Gold badge in HackerRank for SQL.</li>
+                        <li>Participated in CourseVita's Hackathon held on 25th October 2024, showcasing innovation and problem-solving skills.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Other Activities Section -->
+            <section id="activities" class="page-section hidden">
+                <h2 class="section-title">Other Activities</h2>
+                <div class="card">
+                    <ul class="list-disc list-inside space-y-2 text-slate-300">
+                        <li>Joint Secretary for Internal Affairs in my college's Robotics Club, where I help coordinate and manage internal operations.</li>
+                        <li>Attended a Power BI workshop at our college, gaining hands-on experience transforming raw data into insightful visualizations.</li>
+                        <li>Actively participated in NSS Club, contributing to various social service activities.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center text-slate-500 text-sm mt-8">
+            <p>Designed and built by Sandeep Dommata</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Get all section elements
+            const sections = document.querySelectorAll('.page-section');
+            // Hide all sections
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Get all navigation buttons
+            const navButtons = document.querySelectorAll('.nav-button');
+            // Deactivate all buttons
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.remove('hidden');
+            }
+
+            // Add the 'active' class to the clicked button
+            const clickedButton = document.querySelector(`.nav-button[onclick="showSection('${sectionId}')"]`);
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+        }
+
+        // On initial page load, make sure the 'about' section is visible and its button is active
+        window.onload = function() {
+            showSection('about');
+        };
+    </script>
+</body>
+</html>
